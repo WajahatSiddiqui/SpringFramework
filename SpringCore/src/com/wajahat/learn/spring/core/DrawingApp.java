@@ -12,8 +12,10 @@ public class DrawingApp {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("classpath.xml");
 		Triangle triangle = (Triangle) context.getBean("triangle");
-				
 		triangle.draw();
+		
+		TrainglePoint trainglePoint = (TrainglePoint) context.getBean("triangle-point");
+		System.out.println(trainglePoint);
 
 	}
 

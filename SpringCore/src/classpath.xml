@@ -15,4 +15,25 @@
 		<constructor-arg index="0" value="Isosles"/>
 		<constructor-arg index="1" value="20"/>
 	</bean>
+	
+	<bean id="triangle-point" class="com.wajahat.learn.spring.core.TrainglePoint">
+		<constructor-arg index="0" ref="pointa"/>
+		<constructor-arg index="1" ref="pointb"/>
+		<constructor-arg index="2" ref="pointc"/>
+	</bean>
+	
+	<bean id="pointa" class="com.wajahat.learn.spring.core.Point">
+		<constructor-arg index="0" value="0"/>
+		<constructor-arg index="1" value="0"/>
+	</bean>
+	
+	<bean id="pointb" class="com.wajahat.learn.spring.core.Point">
+		<constructor-arg index="0" value="0"/>
+		<constructor-arg index="1" value="5"/>
+	</bean>
+	
+	<bean id="pointc" class="com.wajahat.learn.spring.core.Point">
+		<constructor-arg index="0" value="5"/>
+		<constructor-arg index="1" value="0"/>
+	</bean>
 </beans>
