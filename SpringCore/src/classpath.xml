@@ -3,6 +3,16 @@
 "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
 	<bean id="triangle" class="com.wajahat.learn.spring.core.Triangle">
-		<property name="type" value="Equilateral" />
+		<!-- Setter Injection -->
+		<!-- <property name="type" value="Equilateral" /> -->
+		
+		<!-- Constructor Injection -->
+		<!-- <constructor-arg value="Equilateral"/>
+		<constructor-arg value="20"/> -->
+		<!-- Constructor Injection using type-->
+		<!-- <constructor-arg type="int" value = "20"/> -->
+		<!-- Constructor Injection using indexes -->
+		<constructor-arg index="0" value="Isosles"/>
+		<constructor-arg index="1" value="20"/>
 	</bean>
 </beans>
