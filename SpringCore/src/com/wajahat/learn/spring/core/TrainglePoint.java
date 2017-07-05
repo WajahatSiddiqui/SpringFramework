@@ -5,8 +5,15 @@ public class TrainglePoint {
 	Point pointB;
 	Point pointC;
 	
+	public TrainglePoint() {}
+	
 	public TrainglePoint(Point pointA, Point pointB, Point pointC) {
 		this.pointA = pointA;
+		this.pointB = pointB;
+		this.pointC = pointC;
+	}
+	
+	public TrainglePoint(Point pointB, Point pointC) {
 		this.pointB = pointB;
 		this.pointC = pointC;
 	}

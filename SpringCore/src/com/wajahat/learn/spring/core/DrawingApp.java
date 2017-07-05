@@ -10,13 +10,27 @@ public class DrawingApp {
 		/*BeanFactory factory = new XmlBeanFactory(new FileSystemResource("spring.xml"));
 		Triangle triangle = (Triangle) factory.getBean("triangle");*/
 		
+		// Setter/Constructor Injection
 		ApplicationContext context = new ClassPathXmlApplicationContext("classpath.xml");
 		Triangle triangle = (Triangle) context.getBean("triangle");
 		triangle.draw();
 		
+		// Object Injection
 		TrainglePoint trainglePoint = (TrainglePoint) context.getBean("triangle-point");
 		System.out.println(trainglePoint);
 
+		// Inner bean
+		TrainglePoint trainglePointInner = (TrainglePoint) context.getBean("triangle-point-inner");
+		System.out.println(trainglePointInner);
+		
+		
+		// Alais Inner bean
+		TrainglePoint innerBean = (TrainglePoint) context.getBean("inner-bean");
+		System.out.println(innerBean);
+
+		// Injecting collection
+		TraingleList traingleList = (TraingleList) context.getBean("triangle-list");
+		traingleList.draw();
 	}
 
 }

@@ -5,35 +5,72 @@
 	<bean id="triangle" class="com.wajahat.learn.spring.core.Triangle">
 		<!-- Setter Injection -->
 		<!-- <property name="type" value="Equilateral" /> -->
-		
+
 		<!-- Constructor Injection -->
-		<!-- <constructor-arg value="Equilateral"/>
-		<constructor-arg value="20"/> -->
-		<!-- Constructor Injection using type-->
+		<!-- <constructor-arg value="Equilateral"/> <constructor-arg value="20"/> -->
+		<!-- Constructor Injection using type -->
 		<!-- <constructor-arg type="int" value = "20"/> -->
 		<!-- Constructor Injection using indexes -->
-		<constructor-arg index="0" value="Isosles"/>
-		<constructor-arg index="1" value="20"/>
+		<constructor-arg index="0" value="Isosles" />
+		<constructor-arg index="1" value="20" />
 	</bean>
-	
+
 	<bean id="triangle-point" class="com.wajahat.learn.spring.core.TrainglePoint">
-		<constructor-arg index="0" ref="pointa"/>
-		<constructor-arg index="1" ref="pointb"/>
-		<constructor-arg index="2" ref="pointc"/>
+		<constructor-arg index="0" ref="pointa" />
+		<constructor-arg index="1" ref="pointb" />
+		<constructor-arg index="2" ref="pointc" />
 	</bean>
-	
+
 	<bean id="pointa" class="com.wajahat.learn.spring.core.Point">
-		<constructor-arg index="0" value="0"/>
-		<constructor-arg index="1" value="0"/>
+		<constructor-arg index="0" value="0" />
+		<constructor-arg index="1" value="0" />
 	</bean>
-	
+
 	<bean id="pointb" class="com.wajahat.learn.spring.core.Point">
-		<constructor-arg index="0" value="0"/>
-		<constructor-arg index="1" value="5"/>
+		<constructor-arg index="0" value="0" />
+		<constructor-arg index="1" value="5" />
+	</bean>
+
+	<bean id="pointc" class="com.wajahat.learn.spring.core.Point">
+		<constructor-arg index="0" value="5" />
+		<constructor-arg index="1" value="0" />
 	</bean>
 	
-	<bean id="pointc" class="com.wajahat.learn.spring.core.Point">
-		<constructor-arg index="0" value="5"/>
-		<constructor-arg index="1" value="0"/>
+	<bean id="point1" class="com.wajahat.learn.spring.core.Point">
+		<property name="x" value="0"/>
+		<property name="y" value="0"/>
+	</bean>
+
+	<!-- Inner Beans -->
+	<bean id="triangle-point-inner" class="com.wajahat.learn.spring.core.TrainglePoint">
+		<!-- <constructor-arg index="0">
+			<idref bean="pointa" />
+		</constructor-arg> -->
+		<!-- <property name="pointA" ref="point1"/> -->
+		<property name="pointA" ref="point1"/>
+		<constructor-arg index="0">
+			<bean id="point2" class="com.wajahat.learn.spring.core.Point">
+				<constructor-arg index="0" value="0" />
+				<constructor-arg index="1" value="5" />
+			</bean>
+		</constructor-arg>
+		<constructor-arg index="1">
+			<bean id="point3" class="com.wajahat.learn.spring.core.Point">
+				<constructor-arg index="0" value="5" />
+				<constructor-arg index="1" value="0" />
+			</bean>
+		</constructor-arg>
+	</bean>
+
+	<alias name="triangle-point-inner" alias="inner-bean" />
+	
+	<bean id="triangle-list" class="com.wajahat.learn.spring.core.TraingleList">
+		<property name="points">
+			<list>
+				<ref bean="pointa"/>
+				<ref bean="pointb"/>
+				<ref bean="pointc"/>
+			</list>
+		</property>
 	</bean>
 </beans>
